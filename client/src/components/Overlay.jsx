@@ -55,14 +55,26 @@ const Overlay = () =>{
               obj = tracList.find(val=>val.tracId===fileData[i].data[1]);
 
         if(obj && obj.status && user){
-          let obj2 = {
-            username:user.email,
-            date: fileData[i].data[0],
-            transactionId: fileData[i].data[1],
-            amount: fileData[i].data[2],
-            reward: Math.floor(fileData[i].data[2]/10),
-            netAmount: fileData[i].data[2] - Math.floor(fileData[i].data[2]/10),
-            status: obj.status
+          let obj2
+          if(obj.status === "accepted"){
+            obj2 = {
+              username:user.email,
+              date: fileData[i].data[0],
+              transactionId: fileData[i].data[1],
+              amount: fileData[i].data[2],
+              reward: Math.floor(fileData[i].data[2]/10),
+              netAmount: fileData[i].data[2] - Math.floor(fileData[i].data[2]/10),
+              status: obj.status
+            }
+          }
+          else{
+            obj2 = {
+             username:user.email,
+             date: fileData[i].data[0],
+             transactionId: fileData[i].data[1],
+             amount: fileData[i].data[2],
+             status: obj.status
+           }
           }
           permanantTrac.push(obj2);
         }
@@ -114,10 +126,10 @@ const Overlay = () =>{
        <td>{val.data[1]}</td>
        <td>{val.data[2]}</td>
        <td>
-        <div id={`${val.data[1]}`}>
+       <div id={`${val.data[1]}`}>
        <button id="accept" onClick={(e)=>handleOnAccept(e, val.data[1])} className="btn btn-success my-2 my-sm-0" type="submit">Accept</button>
        <button id="reject" onClick={(e)=>{handleOnReject(e,val.data[1])}} className="btn btn-danger my-2 my-sm-0" type="submit">Reject</button>
-           </div>
+       </div>
        </td>
      </tr>
        );

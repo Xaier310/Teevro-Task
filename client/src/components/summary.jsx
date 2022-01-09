@@ -49,6 +49,7 @@ const Summary = ()=>{
     console.log("load0: ", myState2.isLoading);
 
   useEffect(()=>{
+    if(user)
     setAllTransaction();
   },[]);
 

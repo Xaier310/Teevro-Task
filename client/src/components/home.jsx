@@ -15,7 +15,8 @@ const Home = () =>{
         console.log(err);
       }
     const handleOnDrop = (data) => {
-        // console.log(data);
+        console.log(data);
+        data = data.slice(0,data.length-1);
         dispatch(fileLoadData(data));
     };
     const handleOnSubmit = (e) =>{

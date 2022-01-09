@@ -14,3 +14,5 @@ const TransactionRecordSchema = new mongoose.Schema({
 
 module.exports = mongoose.model("TransactionRecord", TransactionRecordSchema);
 module.exports.TransactionRecordSchema = TransactionRecordSchema;
+
+// export default mongoose.model("TransactionRecord", TransactionRecordSchema);
