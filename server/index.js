@@ -22,9 +22,9 @@ mongoose.connect(
   app.use("/db/transaction-record", transactionRoute);
 
 app.listen(PORT || 3001,()=>{
-    console.log("Server is running on 3001");
+  console.log("Server is running on 3001");
 });
 
 app.get("/",(req,res)=>{
-  res.end("<h1>Server up and running</h1>");
+  res.end("Server up and running");
 })

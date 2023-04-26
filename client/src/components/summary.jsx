@@ -17,7 +17,7 @@ const Summary = ()=>{
 
   const setAllTransaction = async ()=>{
     dispatch(isLoadingFn(true));
-    const alltrans = await axios.get("https://teevro-task-server.herokuapp.com/db/transaction-record",{params:{username:user?.email}});
+    const alltrans = await axios.get(`${process.env.REACT_APP_Backend_API}/db/transaction-record`,{params:{username:user?.email}});
     dispatch(isLoadingFn(false));
     if(alltrans){
       alltrans.data.sort((a,b)=>{

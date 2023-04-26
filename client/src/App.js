@@ -26,8 +26,6 @@ function App() {
     dispatch(setUser(auth.currentUser));
   });
   
-  // console.log(auth?.currentUser, user);
-
   console.log("Rendering...");
 
   return (
@@ -43,7 +41,6 @@ function App() {
       </Router>
     </div>
   );
-  // <Navigate to="/"/>
 }
 
 export default App;

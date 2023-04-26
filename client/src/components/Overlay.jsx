@@ -87,7 +87,7 @@ const Overlay = () =>{
       if(permanantTrac && permanantTrac.length>0){
         dispatch(isLoadingFn(true));
         for(let i =0;i< permanantTrac.length; i++){
-          await axios.post("https://teevro-task-server.herokuapp.com/db/transaction-record",permanantTrac[i]);
+          await axios.post(`${process.env.REACT_APP_Backend_API}/db/transaction-record`,permanantTrac[i]);
         }
         navigate("/transaction-details"); 
       } 
